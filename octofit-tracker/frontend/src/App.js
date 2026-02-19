@@ -21,8 +21,9 @@ function App() {
       {/* ── Navbar ── */}
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
         <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
-            🏋️ OctoFit Tracker
+          <NavLink className="navbar-brand d-flex align-items-center gap-2" to="/">
+            <img src={`${process.env.PUBLIC_URL}/octofitapp-small.png`} alt="OctoFit logo" className="navbar-logo" />
+            OctoFit Tracker
           </NavLink>
           <button
             className="navbar-toggler"

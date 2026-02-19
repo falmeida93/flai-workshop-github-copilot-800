@@ -2,46 +2,151 @@
    OctoFit Tracker Styles
    ===================== */
 
+/* ----- CSS Variables ----- */
+:root {
+  --octo-primary:   #0f3460;
+  --octo-secondary: #16213e;
+  --octo-accent:    #e94560;
+  --octo-teal:      #00b4d8;
+  --octo-light:     #caf0f8;
+  --octo-bg:        #eaf4fb;
+  --octo-card-bg:   #ffffff;
+  --octo-text:      #1a1a2e;
+  --octo-muted:     #5e6a82;
+}
+
+/* ----- Base ----- */
 body {
-  background-color: #f0f2f5;
+  background-color: var(--octo-bg);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--octo-text);
 }
 
 /* ----- Navbar ----- */
+.navbar {
+  background: linear-gradient(90deg, #0f3460 0%, #16213e 60%, #e94560 100%) !important;
+  border-bottom: 3px solid var(--octo-teal);
+}
+
+.navbar-logo {
+  height: 36px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
 .navbar-brand {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.5px;
+  color: #ffffff !important;
 }
 
 .navbar .nav-link {
   font-weight: 500;
+  color: rgba(255,255,255,0.85) !important;
   transition: color 0.2s ease;
+  padding: 0.4rem 0.9rem;
+  border-radius: 0.4rem;
+}
+
+.navbar .nav-link:hover {
+  color: var(--octo-teal) !important;
+  background-color: rgba(255,255,255,0.08);
 }
 
 .navbar .nav-link.active {
-  color: #61dafb !important;
-  border-bottom: 2px solid #61dafb;
+  color: var(--octo-teal) !important;
+  background-color: rgba(0,180,216,0.15);
+  border-bottom: 2px solid var(--octo-teal);
+}
+
+/* ----- Headings ----- */
+h1, h2, h3, h4, h5 {
+  color: var(--octo-primary);
+}
+
+h1 {
+  background: linear-gradient(90deg, var(--octo-primary), var(--octo-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ----- Links ----- */
+a {
+  color: var(--octo-teal);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--octo-accent);
+  text-decoration: underline;
+}
+
+.App-link {
+  color: var(--octo-teal);
 }
 
 /* ----- Hero / Home ----- */
 .octofit-hero {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0f3460 0%, #16213e 45%, #e94560 100%);
   color: #fff;
   padding: 4rem 2rem;
-  border-radius: 0 0 1rem 1rem;
+  border-radius: 0 0 1.5rem 1.5rem;
   margin-bottom: 2rem;
+  box-shadow: 0 6px 24px rgba(15,52,96,0.3);
 }
 
 .octofit-hero h1 {
   font-size: 2.8rem;
   font-weight: 700;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  background: linear-gradient(90deg, #ffffff, var(--octo-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .octofit-hero .lead {
   font-size: 1.2rem;
   opacity: 0.9;
+  color: var(--octo-light);
+}
+
+/* ----- Buttons ----- */
+.btn-primary, .btn-dark {
+  background: linear-gradient(135deg, var(--octo-primary), #1a4a8a) !important;
+  border-color: var(--octo-primary) !important;
+  color: #fff !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover, .btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15,52,96,0.4);
+  background: linear-gradient(135deg, #1a4a8a, var(--octo-primary)) !important;
+}
+
+.btn-outline-light {
+  border: 2px solid var(--octo-teal) !important;
+  color: var(--octo-teal) !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-outline-light:hover {
+  background-color: var(--octo-teal) !important;
+  color: var(--octo-primary) !important;
+}
+
+.btn-sm {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.85rem;
 }
 
 /* ----- Feature Cards (Home) ----- */
@@ -50,11 +155,13 @@ body {
   border-radius: 0.75rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-top: 3px solid var(--octo-teal);
 }
 
 .feature-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0,180,216,0.18);
+  border-top-color: var(--octo-accent);
 }
 
 .feature-card .card-body {
@@ -70,13 +177,13 @@ body {
 .page-card {
   border: none;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(15,52,96,0.1);
   margin-bottom: 2rem;
 }
 
 .page-card .card-header {
   border-radius: 0.75rem 0.75rem 0 0 !important;
-  background: linear-gradient(90deg, #1a1a2e, #0f3460);
+  background: linear-gradient(90deg, var(--octo-primary) 0%, #e94560 100%);
   color: #fff;
   font-size: 1.25rem;
   font-weight: 600;
@@ -84,13 +191,38 @@ body {
 }
 
 /* ----- Tables ----- */
-.table th {
-  white-space: nowrap;
-  font-weight: 600;
+.table {
+  color: var(--octo-text);
 }
 
-.table-hover tbody tr:hover {
-  background-color: rgba(97, 218, 251, 0.07);
+.table th {
+  white-space: nowrap;
+  font-weight: 700;
+  background-color: var(--octo-primary);
+  color: #ffffff;
+  border-color: #1a4a8a;
+}
+
+.table thead th {
+  border-bottom: 2px solid var(--octo-teal);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(0, 180, 216, 0.07);
+}
+
+.table-hover tbody tr:hover > * {
+  background-color: rgba(233,69,96,0.08);
+  color: var(--octo-primary);
+}
+
+.table-bordered {
+  border-color: var(--octo-teal);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border-color: rgba(0,180,216,0.25);
 }
 
 /* ----- Badges ----- */
@@ -100,10 +232,19 @@ body {
   border-radius: 0.5rem;
 }
 
+.badge.bg-primary {
+  background-color: var(--octo-teal) !important;
+}
+
+.badge.bg-success {
+  background-color: #2ecc71 !important;
+}
+
 /* ----- Loading Spinner ----- */
 .spinner-border {
   width: 3rem;
   height: 3rem;
+  color: var(--octo-teal);
 }
 
 /* ----- Rank medals ----- */
@@ -111,6 +252,22 @@ body {
 .rank-silver { color: #9e9e9e; font-weight: 700; font-size: 1.1rem; }
 .rank-bronze { color: #cd7f32; font-weight: 700; font-size: 1.1rem; }
 
-.App-link {
-  color: #61dafb;
+/* ----- Footer ----- */
+footer {
+  background: linear-gradient(90deg, var(--octo-secondary), var(--octo-primary)) !important;
+  color: rgba(255,255,255,0.6) !important;
+  border-top: 2px solid var(--octo-teal);
 }
+
+/* ----- Alert / Error boxes ----- */
+.alert-danger {
+  background-color: rgba(233,69,96,0.12);
+  border-color: var(--octo-accent);
+  color: var(--octo-accent);
+}
+
+/* ----- Scrollbar (Webkit) ----- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--octo-bg); }
+::-webkit-scrollbar-thumb { background: var(--octo-teal); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--octo-primary); }
